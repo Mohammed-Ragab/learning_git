@@ -1,0 +1,73 @@
+<!DOCTYPE html> 
+
+
+<head>
+
+<title>
+day 1.3 asnwer
+</title>
+
+
+</head>
+
+
+<body>
+
+<script>
+var userWantToLeave = false ;
+
+// while the user does not want to leave (if he pressed "cancle button in the confirmation dialog box
+while( userWantToLeave == false)
+{
+		// take the calculation input from a user 
+	var calculation = window.prompt("please Enter the math operation (example: 2 * 3 ) , Note: do note divid by zero ");
+
+	// make sure that the user entered an input when press "ok" on the prompt 
+	while(calculation == "")
+	{
+		var calculation = window.prompt("please Enter the math operation (example: 2 * 3 ) , Note: do note divid by zero ");
+
+	}
+
+
+	// check if a user pressed "cancel"
+	// note : when "cancel" is pressed, a 'null' is returned ( null is the same as undifined)  
+	if (calculation === null)
+	{	
+		userWantToLeave =  window.confirm("you pressed \"cancel\" button  ... I will miss you as you leave my app! \n Are you sure you want to leave my App?");
+
+		if(userWantToLeave === true)
+		{
+			window.close();
+		}
+	}
+	
+     // incase user divide a number by 0 
+	while(eval(calculation) == Infinity)
+	{
+		window.alert("invalid divition , there is no a divition by 0 !!");
+		calculation = window.prompt("please Enter the math operation (example: 2 * 3 ) , Note: do note divid by zero ");	
+		
+	}
+	
+	// evalucate the string math expression
+	var result = calculateMathexpression(calculation);
+
+	// output the evaluation of the expression to the user
+	window.alert("The answer is : " + result);
+
+
+}
+
+function calculateMathexpression (operationString)
+{
+	return eval(operationString);
+
+}
+
+</script>
+
+</body>
+
+
+</html>
